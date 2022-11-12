@@ -22,11 +22,19 @@ git clone https://github.com/tyzrex/Rotating-3D-Cube-OpenGL
 * Compile the code
 
 ```bash
-g++ main.cpp -lGL -lGLU -lglut
+g++ 3dCube.cpp -o output -g -lGL -lGLU -lglut
 ```
 
 * Run the executable
 
 ```bash
-./a.out
+cd exec
+./output
 ```
+## Controls
+
+* Press the right/left mouse button once to start the rotation of the cube.
+* Press the right/left mouse button again to increase/decrease the speed of rotation.
+* Scroll the mouse wheel to zoom in/out.
+* Press the Scroll button to stop the rotation of the cube.
+
