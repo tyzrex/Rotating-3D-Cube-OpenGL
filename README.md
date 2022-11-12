@@ -28,7 +28,6 @@ g++ 3dCube.cpp -o output -g -lGL -lGLU -lglut
 * Run the executable
 
 ```bash
-cd exec
 ./output
 ```
 ## Controls
