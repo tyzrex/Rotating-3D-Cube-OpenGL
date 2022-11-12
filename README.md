@@ -4,7 +4,7 @@ This is a simple 3D cube that rotates in OpenGL. It is written in C++ and uses t
 
 ## Demo 
 
-![Demo](demo/demo.mp4)
+![Demo](demo/demo.gif)
 
 ## Pre-requisites
 
