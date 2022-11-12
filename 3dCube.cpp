@@ -11,7 +11,6 @@ void cube(float dimX, float dimY, float dimZ);
 void display(void);
 void init(void);
 void reshape(int w, int h);
-void keyboard(unsigned char key, int x, int y);
 void idle(void);
 void mouse(int button, int state, int x, int y);
 
@@ -29,7 +28,6 @@ int main(int argc, char **argv)
     glutIdleFunc(idle);
     glutReshapeFunc(reshape);
     glutMouseFunc(mouse);
-    glutKeyboardFunc(keyboard);
     glutMainLoop();
     return 0;
 }
@@ -121,53 +119,6 @@ void init(void)
     glEnable(GL_DEPTH_TEST); //for back face detection of the surface of the cube
 }
 
-//keyboard bindings for rotating the cube and also changing the size of the cube
-void keyboard(unsigned char key, int x, int y)
-{
-    switch (key)
-    {
-    case 27:
-        exit(0);
-        break;
-    case 'S':
-        transZ += 1.0f;
-        glutPostRedisplay();
-        break;
-    case 'W':
-        transZ -= 1.0f;
-        if (transZ < 0)
-            transZ = 0;
-        glutPostRedisplay();
-        break;
-    case 's':
-        transZ += 0.5f;
-        glutPostRedisplay();
-        break;
-    case 'w':
-        transZ -= 0.5f;
-        if (transZ < 0)
-            transZ = 0;
-        glutPostRedisplay();
-        break;
-    case 'A':
-        rotateAspeed += 0.001f;
-        glutPostRedisplay();
-        break;
-    case 'a':
-        rotateAspeed += 0.001f;
-        glutPostRedisplay();
-        break;
-    case 'D':
-        rotateAspeed -= 0.001f;
-        glutPostRedisplay();
-        break;
-    case 'd':
-        rotateAspeed -= 0.001f;
-        glutPostRedisplay();
-        break;
-}
-}
-
 //function for idle case 
 void idle(void)
 {
@@ -180,15 +131,28 @@ void mouse(int button, int state, int x, int y)
 {
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
     {
+        rotateAspeed -= 0.01f;
+    }
+
+    if (button == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN)
+    {
         rotateAspeed = 0;
+    }
+
+    if (button == 3 && state == GLUT_UP)
+    {
+        transZ -= 1.0f;
+    }
+
+    if(button == 4 && state == GLUT_UP)
+    {
+        transZ += 1.0f;
     }
 
     if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
     {
-        rotateAspeed = 0.001f;
+        rotateAspeed += 0.01f;
     }
-
-
 }
 
 // function for maintaining the aspect ratio whenever we change the window size
