@@ -13,6 +13,8 @@ This is a simple 3D cube that rotates in OpenGL. It is written in C++ and uses t
 
 ## How to run
 
+### For Linux
+
 * Clone the repository
 
 ```bash
@@ -30,6 +32,17 @@ g++ 3dCube.cpp -o output -g -lGL -lGLU -lglut
 ```bash
 ./output
 ```
+## Or Simply 
+
+ ```bash
+ chmod +x build.sh
+ ./build.sh
+ ```
+
+## For Windows
+
+Maybe click some buttons eh? IDK
+
 ## Controls
 
 * Press the right/left mouse button once to start the rotation of the cube.
